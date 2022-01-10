@@ -3,8 +3,9 @@ import AuthForm from '../../components/AuthForm';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { signInUser, signUpUser } from '../../services/users';
+import './Auth.css';
 
-export default function Auth() {
+export default function Auth({ setCurrentUser }) {
   const [type, setType] = useState('signin');
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
@@ -13,7 +14,11 @@ export default function Auth() {
     e.preventDefault();
     try {
       let resp;
-
+      if (type === 'signin') {
+        resp = await signInUser(email, password);
+      } else {
+        resp = await signUpUser(email, password);
+      }
       setCurrentUser(resp);
     } catch {
       setError('Login Failed');
@@ -21,7 +26,7 @@ export default function Auth() {
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="header">
         <h3
           onClick={() => {
