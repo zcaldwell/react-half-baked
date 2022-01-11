@@ -17,11 +17,21 @@
   align-items: center;
   margin-top: 100px;
   border: solid 5px black;
-  width: 50%;
-  margin-left: 25%;
+  width: 40%;
   height: 300px;
+  justify-content: center;
 }
 
-form {
+.form {
   display: flex;
+  flex-direction: row;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin-top: 20px;
 }

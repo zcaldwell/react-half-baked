@@ -26,35 +26,37 @@ export default function Auth({ setCurrentUser }) {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <h3
-          onClick={() => {
-            setType('signin');
-          }}
-          className={classNames({ active: type === 'signin' })}
-        >
-          Sign In
-        </h3>
+    <main>
+      <div className="container">
+        <div className="header">
+          <h3
+            onClick={() => {
+              setType('signin');
+            }}
+            className={classNames({ active: type === 'signin' })}
+          >
+            Sign In
+          </h3>
+        </div>
+        <div className="header">
+          <h3
+            onClick={() => {
+              setType('signup');
+            }}
+            className={classNames({ active: type === 'signup' })}
+          >
+            Sign Up
+          </h3>
+        </div>
+        <AuthForm
+          email={email}
+          password={password}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          handleSubmit={handleSubmit}
+          error={error}
+        />
       </div>
-      <div className="header">
-        <h3
-          onClick={() => {
-            setType('signup');
-          }}
-          className={classNames({ active: type === 'signup' })}
-        >
-          Sign Up
-        </h3>
-      </div>
-      <AuthForm
-        email={email}
-        password={password}
-        setEmail={setEmail}
-        setPassword={setPassword}
-        handleSubmit={handleSubmit}
-        error={error}
-      />
-    </div>
+    </main>
   );
 }

@@ -19,6 +19,7 @@ function App() {
             {currentUser && (
               <div className="logout">
                 <h1>Signed In</h1>
+                <img src="./assets/spiderliliez.gif" />
                 <button onClick={logoutUser}>Log Out</button>
               </div>
             )}
